@@ -4,28 +4,13 @@ function getComputerChoice(){
     return options[randomindex];
 }
 
-function getHumanChoice(){
-    const options=["rock", "paper", "scissors"]
-    let humanInput
-
-    while(true){
-        humanInput=prompt("Enter Rock, Paper, or Scissors:").toLowerCase();
-        
-        if(options.includes(humanInput)){
-            break;
-        }
-        else{
-            alert("Invalid Input. Please Try Again!!")
-        }
-    }
-    
-    return humanInput;
-}
-
 let humanScore=0;
 let computerScore=0;
 
 function playRound(humanChoice, computerChoice){
+    const finalResult=document.getElementById("final-result");
+    const score=document.getElementById("score");
+
     if(humanChoice===computerChoice){
         console.log(`Your choice was ${humanChoice}, while computer choose ${computerChoice}`);
         console.log("It's a tie");
@@ -40,30 +25,28 @@ function playRound(humanChoice, computerChoice){
         console.log(`Your choice was ${humanChoice}, while computer choose ${computerChoice}`);
         computerScore++;
     }
-    console.log(`Score is ${humanScore}-${computerScore}`)
+
+    score.textContent = `Score: Human ${humanScore} - Computer ${computerScore}`;
+
+    if (humanScore === 5 || computerScore === 5) {
+        if (humanScore > computerScore) {
+            finalResult.textContent = "Congratulations, you won the game!";
+        } else {
+            finalResult.textContent = "You lost the game, better luck next time!";
+        }
+        humanScore=0;
+        computerScore=0;
+    } 
+}
+function handleClick(event) {
+    const humanChoice = event.target.id;
+    const computerChoice = getComputerChoice();
+    playRound(humanChoice, computerChoice);
 }
 
-function playGame(){
-    for(let i=0; i<5; i++){
-        const computerChoice= getComputerChoice();
-        const humanChoice= getHumanChoice();
-        playRound(humanChoice, computerChoice);
-    }
-
-    console.log(`Final Score is ${humanScore}-${computerScore}`)
-    if(humanScore>computerScore){
-        console.log("Congratulations, You Won!!");
-    }
-    else if(humanScore===computerScore){
-        console.log("Well Played, it was a tie!!")
-    }
-    else{
-        console.log("You lost!, Better Luck Next Time");
-    }
-    
-}
-
-playGame();
+document.getElementById("rock").addEventListener("click", handleClick);
+document.getElementById("paper").addEventListener("click", handleClick);
+document.getElementById("scissors").addEventListener("click", handleClick);
 
 
 
