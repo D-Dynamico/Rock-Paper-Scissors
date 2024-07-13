@@ -76,4 +76,4 @@ document.getElementById("scissors").addEventListener("click", handleClick);
 
 function randomNumber(min, max) {
     return Math.random() * (max - min) + min
-}
+} 
