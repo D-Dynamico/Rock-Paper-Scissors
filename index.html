@@ -4,15 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Play:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button id="rock">Rock</button>
-    <button id="paper">Paper</button>
-    <button id="scissors">Scissors</button>
+    <h1>Make your choice!</h1>
 
-    <div id="score">Score: Human 0 - Computer 0</div>
-    <div id="final-result"></div>
+    <canvas id="confetti"></canvas>
 
+    <div class="btns">
+        <button id="rock"><img src="https://thumbs.dreamstime.com/b/flirty-japanese-cartoon-rock-digital-illustration-116946145.jpg" width="120px" height="120px" alt="Rock"></button>
+        <button id="paper"><img src="https://img.freepik.com/premium-vector/happy-baby-paper-cartoon-character_152558-87797.jpg" width="120px" height="120px" alt="Paper"></button>
+        <button id="scissors"><img src="https://us.123rf.com/450wm/maria235/maria2352311/maria235231100178/219334989-funny-groovy-retro-clipart-scissors-scissors-character-in-70s-cartoon-style-vector-illustration.jpg?ver=6" width="120px" height="120px" alt="Scissors"></button>
+    </div>
+
+    <div class="score-results">
+        <div id="score">Score: Human 0 - Computer 0</div>
+        <div id="whoiswho"></div>
+        <div id="final-result"></div>
+    </div>
+    
+    <!--It's for win-->
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+    <!--It's for loss-->
+    <script src="https://cdn.jsdelivr.net/npm/confettis@0.3.4/lib/confettis.min.js"></script>
     <script src="script.js"></script> 
 </body>
 </html>
