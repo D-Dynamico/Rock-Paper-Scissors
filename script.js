@@ -20,6 +20,7 @@ function playRound(humanChoice, computerChoice){
     let choiceMade=document.getElementById("whoiswho")
 
     if(humanChoice===computerChoice){
+        choiceMade.textContent= `Both choose ${humanChoice}`;
         finalResult.textContent="It's a Draw!";
     }
     else if((humanChoice==="paper" && computerChoice==="rock") || (humanChoice==="scissors" && computerChoice==="paper") || (humanChoice==="rock" && computerChoice==="scissors")){
